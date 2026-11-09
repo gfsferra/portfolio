@@ -55,7 +55,7 @@ que a explicam. Não vira cor de botão nem de decoração.
 
 ## Espaço e forma
 
-- Escala de 4px do Tailwind. Entre seções: 96px no desktop (`py-24`) e 64px no celular (`py-16`).
+- Escala de 4px do Tailwind. Cada seção tem `py-12 lg:py-16`, o que dá 96px entre seções no celular e 128px no desktop.
 - Conteúdo com no máximo 1120px (`max-w-page`) e margem lateral de pelo menos 16px.
 - Raios por papel: 6px nos chips, 8px nos botões, 12px nos cartões de código, 14px no painel de projeto.
 - Sombra só nos cartões de código (`shadow-code`). O resto da página é plano, separado por borda.

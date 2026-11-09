@@ -9,7 +9,7 @@ export function Projects({ lang }: { lang: Locale }) {
     <section
       id={sectionId('projetos', lang)}
       aria-labelledby="projects-title"
-      className="mx-auto max-w-page px-4 py-16 sm:px-6 lg:py-24"
+      className="mx-auto max-w-page px-4 py-12 sm:px-6 lg:py-16"
     >
       <header className="max-w-prose">
         <h2 id="projects-title" className="text-section">

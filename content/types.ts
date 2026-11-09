@@ -1,3 +1,5 @@
+import type { TechIconKey } from '@/lib/tech-icons'
+
 export const locales = ['pt', 'en'] as const
 export type Locale = (typeof locales)[number]
 
@@ -32,9 +34,16 @@ export interface Education {
   end: YearMonth | null
 }
 
+export interface Skill {
+  /** Nome próprio de tecnologia fica igual nos dois idiomas; o resto é traduzido. */
+  name: string | Localized
+  /** Ícone do Simple Icons (ver lib/tech-icons.ts); sem ícone, aparece só o nome. */
+  icon?: TechIconKey
+}
+
 export interface SkillGroup {
   area: Localized
-  items: string[]
+  items: Skill[]
 }
 
 export interface Profile {
@@ -45,7 +54,7 @@ export interface Profile {
   location: Localized
   /** Parágrafos da seção "Sobre". */
   about: Localized<string[]>
-  photo: { src: string; alt: Localized } | null
+  photo: { src: string; alt: Localized; width: number; height: number } | null
   contacts: Contact[]
   experience: Experience[]
   education: Education[]

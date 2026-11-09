@@ -47,6 +47,15 @@ export const ui = {
     notes: { pt: 'Notas sobre o trecho', en: 'Notes on the excerpt' },
   },
 
+  about: {
+    title: { pt: 'Sobre', en: 'About' },
+    skills: { pt: 'Tecnologias', en: 'Technologies' },
+    skillsIntro: {
+      pt: 'O que uso no trabalho e nos meus projetos, por área.',
+      en: 'What I use at work and in my own projects, by area.',
+    },
+  },
+
   projects: {
     title: { pt: 'Projetos', en: 'Projects' },
     intro: {

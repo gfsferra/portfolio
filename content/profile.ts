@@ -27,6 +27,8 @@ export const profile: Profile = {
   // Recortada de IMG_7207.HEIC (09/11/2026), sem metadados. Também há a versão 1:1 em /images/gabriel-sferra-square.jpg.
   photo: {
     src: '/images/gabriel-sferra.jpg',
+    width: 864,
+    height: 1080,
     alt: {
       pt: 'Gabriel Sferra de terno azul-marinho e gravata',
       en: 'Gabriel Sferra wearing a navy suit and tie',
@@ -85,23 +87,49 @@ export const profile: Profile = {
   skills: [
     {
       area: { pt: 'Front-end', en: 'Front-end' },
-      items: ['TypeScript', 'JavaScript', 'Vue 3', 'React', 'React Native (Expo)', 'Tailwind CSS', 'SCSS'],
+      items: [
+        { name: 'TypeScript', icon: 'typescript' },
+        { name: 'JavaScript', icon: 'javascript' },
+        { name: 'Vue 3', icon: 'vuedotjs' },
+        { name: 'React', icon: 'react' },
+        { name: 'React Native (Expo)', icon: 'expo' },
+        { name: 'Tailwind CSS', icon: 'tailwindcss' },
+        { name: 'SCSS', icon: 'sass' },
+      ],
     },
     {
       area: { pt: 'Back-end', en: 'Back-end' },
-      items: ['Node.js (Hono)', 'PHP (Laravel)', 'C# (ASP.NET Core MVC)'],
+      items: [
+        { name: 'Node.js (Hono)', icon: 'hono' },
+        { name: 'PHP (Laravel)', icon: 'laravel' },
+        // O Simple Icons não tem o logo do C#; o do .NET representa a plataforma.
+        { name: 'C# (ASP.NET Core MVC)', icon: 'dotnet' },
+      ],
     },
     {
       area: { pt: 'Dados e infra', en: 'Data & infra' },
-      items: ['PostgreSQL', 'MySQL', 'Redis', 'Docker', 'Cloudflare Workers', 'Netlify'],
+      items: [
+        { name: 'PostgreSQL', icon: 'postgresql' },
+        { name: 'MySQL', icon: 'mysql' },
+        { name: 'Redis', icon: 'redis' },
+        { name: 'Docker', icon: 'docker' },
+        { name: 'Cloudflare Workers', icon: 'cloudflareworkers' },
+        { name: 'Netlify', icon: 'netlify' },
+      ],
     },
     {
       area: { pt: 'Qualidade', en: 'Quality' },
-      items: ['PHPUnit', 'Vitest', 'node:test', 'ESLint', 'Testes manuais e exploratórios'],
+      items: [
+        { name: 'PHPUnit' },
+        { name: 'Vitest', icon: 'vitest' },
+        { name: 'node:test', icon: 'nodedotjs' },
+        { name: 'ESLint', icon: 'eslint' },
+        { name: { pt: 'Testes manuais e exploratórios', en: 'Manual and exploratory testing' } },
+      ],
     },
     {
       area: { pt: 'E-commerce', en: 'E-commerce' },
-      items: ['TrayCorp', 'Wake', 'MercadoShops'],
+      items: [{ name: 'TrayCorp' }, { name: 'Wake' }, { name: 'MercadoShops' }],
     },
   ],
   // Gerados na Fase 4 a partir deste conteúdo, sem endereço residencial.
