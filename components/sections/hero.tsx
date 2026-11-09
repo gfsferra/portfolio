@@ -7,14 +7,10 @@ import { getSnippet } from '@/content/snippets'
 import { ui } from '@/content/ui'
 import { highlight } from '@/lib/highlight'
 import type { Locale } from '@/lib/i18n'
+import { sectionId } from '@/lib/sections'
 
 /** De trás para a frente na pilha: o último cartão fica por cima, inteiro à vista. */
 const HERO_SNIPPETS = ['orbital-category-kind-fk', 'grit-conditional-upsert', 'cadastro-cpf-check-digit']
-
-function sectionId(key: 'projetos' | 'contato', lang: Locale) {
-  const item = ui.nav.items.find((i) => i.id.pt === key)
-  return item ? item.id[lang] : key
-}
 
 export async function Hero({ lang }: { lang: Locale }) {
   const cards = await Promise.all(
@@ -30,7 +26,7 @@ export async function Hero({ lang }: { lang: Locale }) {
   return (
     <section
       aria-labelledby="hero-title"
-      className="mx-auto grid max-w-page items-center gap-12 px-4 pt-14 pb-20 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:pt-20 lg:pb-28"
+      className="mx-auto grid max-w-page items-center gap-12 px-4 pt-14 pb-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:pt-20 lg:pb-12"
     >
       <div>
         <h1 id="hero-title" className="text-display">

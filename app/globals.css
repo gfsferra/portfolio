@@ -205,7 +205,7 @@
     text-wrap: balance;
   }
   /* Âncoras não ficam escondidas sob o cabeçalho fixo (64px + respiro). */
-  section[id], main[id] {
+  [id] {
     scroll-margin-top: 5rem;
   }
   @media (prefers-reduced-motion: no-preference) {
@@ -252,6 +252,26 @@
   .code-body pre.wrap {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
+  }
+  .code-body pre.numbered code {
+    counter-reset: line;
+  }
+  /* Cada linha é um bloco com recuo: ao quebrar, o texto continua alinhado e o número fica na margem. */
+  .code-body pre.numbered .line {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-left: 2.5rem;
+  }
+  .code-body pre.numbered .line::before {
+    counter-increment: line;
+    content: counter(line);
+    position: absolute;
+    left: 0;
+    width: 1.5rem;
+    text-align: right;
+    color: var(--code-line-number);
+    user-select: none;
   }
   .code-body .line.marked {
     display: inline-block;

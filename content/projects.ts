@@ -3,12 +3,32 @@ import type { Project } from './types'
 /*
  * Fontes: READMEs de gfsferra/orbital e gfsferra/fullstack, CLAUDE.md e package.json do grit
  * (repositório privado) e o app no ar em gfsolutions-grit.netlify.app. Números conferidos em 09/11/2026.
- * Imagens: TODO. Serão capturadas com o Chrome DevTools MCP (Fase 4).
+ * Imagens: capturas reais dos apps no ar (por enquanto, só o Grit tem).
  */
 export const projects: Project[] = [
   {
     slug: 'orbital',
     title: { pt: 'Orbital', en: 'Orbital' },
+    status: { pt: 'Em desenvolvimento', en: 'In development' },
+    code: {
+      snippet: 'orbital-typed-client',
+      notes: [
+        {
+          line: 3,
+          text: {
+            pt: 'Só o tipo da API entra no app. Nenhuma linha do servidor vai junto para o iPhone, o Android ou a web.',
+            en: 'Only the API type enters the app. Not a single line of server code ships to iPhone, Android or the web.',
+          },
+        },
+        {
+          line: 5,
+          text: {
+            pt: 'O cliente conhece cada rota e cada resposta. Se a API mudar um formato, o app deixa de compilar na hora.',
+            en: 'The client knows every route and response. If the API changes a shape, the app stops compiling right away.',
+          },
+        },
+      ],
+    },
     tagline: {
       pt: 'Controle financeiro pessoal para iPhone, Android e web, servido por uma única API.',
       en: 'Personal finance app for iPhone, Android and the web, served by a single API.',
@@ -47,6 +67,26 @@ export const projects: Project[] = [
   {
     slug: 'grit',
     title: { pt: 'Grit', en: 'Grit' },
+    status: { pt: 'No ar', en: 'Live' },
+    code: {
+      snippet: 'grit-check-proposal',
+      notes: [
+        {
+          line: 3,
+          text: {
+            pt: 'Uma proposta com formato errado é recusada antes de qualquer conta.',
+            en: 'A malformed proposal is rejected before any math runs.',
+          },
+        },
+        {
+          line: 6,
+          text: {
+            pt: 'Só é aprovada se as calorias e cada macro ficarem dentro da faixa da meta da pessoa.',
+            en: 'It is only approved if calories and every macro fall within the person’s target range.',
+          },
+        },
+      ],
+    },
     tagline: {
       pt: 'App de dieta e treino para iPhone, com checklist diário, que funciona offline.',
       en: 'Diet and training app for iPhone with a daily checklist that works offline.',
@@ -80,12 +120,41 @@ export const projects: Project[] = [
     },
     // Código privado: o repositório guarda dados pessoais.
     links: { demo: 'https://gfsolutions-grit.netlify.app' },
-    image: null,
+    // Capturada do app no ar em 09/11/2026, com o plano de exemplo (sem dados de ninguém).
+    image: {
+      src: '/images/projects/grit-treino.jpg',
+      alt: {
+        pt: 'Tela de treino do Grit no iPhone: Treino A, peito e tríceps, com a lista de exercícios',
+        en: 'Grit workout screen on iPhone: Workout A, chest and triceps, with the exercise list',
+      },
+      width: 780,
+      height: 1688,
+    },
     featured: true,
   },
   {
     slug: 'cadastro-full-stack',
     title: { pt: 'Cadastro Full Stack', en: 'Full Stack Sign-up' },
+    status: { pt: 'Código aberto', en: 'Open source' },
+    code: {
+      snippet: 'cadastro-repository-queue',
+      notes: [
+        {
+          line: 1,
+          text: {
+            pt: 'O serviço grava pelo repositório, não direto pelo Eloquent: a persistência pode mudar sem mexer na regra de negócio.',
+            en: 'The service writes through the repository, not Eloquent directly: persistence can change without touching business rules.',
+          },
+        },
+        {
+          line: 8,
+          text: {
+            pt: 'O e-mail vai para uma fila no Redis, então a resposta ao usuário não espera o envio.',
+            en: 'The email goes to a Redis queue, so the response does not wait for delivery.',
+          },
+        },
+      ],
+    },
     tagline: {
       pt: 'Sistema de cadastro de usuários com login Google OAuth 2.0.',
       en: 'User registration system with Google OAuth 2.0 sign-in.',

@@ -13,6 +13,8 @@ interface HighlightOptions {
   marked?: number[]
   /** Quebra linhas longas em vez de rolar. Sem rolagem, o <pre> não precisa entrar no Tab. */
   wrap?: boolean
+  /** Mostra o número de cada linha do trecho (as notas se referem a eles). */
+  numbered?: boolean
 }
 
 /**
@@ -21,13 +23,14 @@ interface HighlightOptions {
  */
 export async function highlight(code: string, lang: Snippet['lang'], options: HighlightOptions = {}) {
   'use cache'
-  const { marked = [], wrap = false } = options
+  const { marked = [], wrap = false, numbered = false } = options
   return codeToHtml(code, {
     lang,
     theme,
     transformers: [
       {
         pre(node) {
+          if (numbered) this.addClassToHast(node, 'numbered')
           if (wrap) {
             delete node.properties.tabindex
             this.addClassToHast(node, 'wrap')

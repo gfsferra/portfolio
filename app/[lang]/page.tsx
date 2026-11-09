@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { Hero } from '@/components/sections/hero'
+import { Projects } from '@/components/sections/projects'
 import { hasLocale } from '@/lib/i18n'
 
 export default async function HomePage({ params }: PageProps<'/[lang]'>) {
@@ -9,6 +10,7 @@ export default async function HomePage({ params }: PageProps<'/[lang]'>) {
   return (
     <main id="main" tabIndex={-1} className="outline-none">
       <Hero lang={lang} />
+      <Projects lang={lang} />
     </main>
   )
 }

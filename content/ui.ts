@@ -43,6 +43,23 @@ export const ui = {
   code: {
     viewSource: { pt: 'ver no GitHub (abre em nova aba)', en: 'view on GitHub (opens in a new tab)' },
     privateRepo: { pt: 'repositório privado', en: 'private repository' },
+    line: { pt: 'Linha', en: 'Line' },
+    notes: { pt: 'Notas sobre o trecho', en: 'Notes on the excerpt' },
+  },
+
+  projects: {
+    title: { pt: 'Projetos', en: 'Projects' },
+    intro: {
+      pt: 'O que eu construí, com o código por trás de cada decisão.',
+      en: 'What I have built, with the code behind each decision.',
+    },
+    problem: { pt: 'O problema', en: 'The problem' },
+    role: { pt: 'O que eu fiz', en: 'What I did' },
+    highlights: { pt: 'Decisões técnicas', en: 'Technical decisions' },
+    stack: { pt: 'Tecnologias', en: 'Stack' },
+    repo: { pt: 'Ver o código', en: 'View the code' },
+    demo: { pt: 'Abrir o app', en: 'Open the app' },
+    newTab: { pt: '(abre em nova aba)', en: '(opens in a new tab)' },
   },
 
   notFound: {

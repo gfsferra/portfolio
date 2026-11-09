@@ -61,9 +61,19 @@ export interface ProjectImage {
   height: number
 }
 
+export interface CodeNote {
+  /** Linha do trecho (1 = primeira linha exibida) que recebe o marca-texto. */
+  line: number
+  text: Localized
+}
+
 export interface Project {
   slug: string
   title: Localized
+  /** Estado curto: no ar, em desenvolvimento, código aberto. */
+  status: Localized
+  /** Trecho anotado no painel do projeto (id em snippets.ts). */
+  code?: { snippet: string; notes: CodeNote[] }
   /** Uma linha: o que é. */
   tagline: Localized
   /** Que problema resolve. */
@@ -88,6 +98,8 @@ export interface SnippetSource {
   path: string
   /** Faixas de linhas do arquivo original, inclusivas. */
   ranges: [number, number][]
+  /** Linhas omitidas depois da última faixa (o trecho termina em `/* … *\/`). */
+  trailingEllipsis: boolean
   /** Repositório privado: o site mostra o caminho, mas não o link. */
   private: boolean
 }

@@ -1,12 +1,8 @@
 // Confere cada trecho público de content/snippets.ts contra o arquivo no GitHub, no commit fixado.
 // Uso: npm run check:snippets   (sai com código 1 se algum trecho divergir)
 import { snippets } from '../content/snippets.ts'
+import { buildSnippet } from './snippet-lines.mjs'
 
-function dedent(lines) {
-  const indents = lines.filter((l) => l.trim()).map((l) => l.match(/^ */)[0].length)
-  const min = Math.min(...indents)
-  return lines.map((l) => l.slice(min))
-}
 
 let failed = 0
 for (const { id, source, code } of snippets) {
@@ -22,8 +18,7 @@ for (const { id, source, code } of snippets) {
     continue
   }
   const all = (await res.text()).split('\n')
-  const parts = source.ranges.map(([a, b]) => all.slice(a - 1, b))
-  const expected = dedent(parts.flatMap((p, i) => (i === 0 ? p : ['/* … */', ...p]))).join('\n')
+  const expected = buildSnippet(all, source.ranges, source.trailingEllipsis)
   if (expected === code) {
     console.log(`✓  ${id}`)
   } else {
