@@ -24,6 +24,7 @@ export async function Footer({ lang }: { lang: Locale }) {
             className="underline-offset-4 hover:text-foreground hover:underline"
           >
             {ui.footer.source[lang]}
+            <span className="sr-only"> {ui.projects.newTab[lang]}</span>
           </a>
           <a href="#main" className="underline-offset-4 hover:text-foreground hover:underline">
             {ui.footer.backToTop[lang]}

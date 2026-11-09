@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
 import { Footer } from '@/components/site/footer'
 import { Header } from '@/components/site/header'
@@ -16,6 +16,14 @@ import '../globals.css'
  */
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }))
+}
+
+/** Cor da barra do navegador no celular, igual ao fundo de cada tema. */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#F5F6FA' },
+    { media: '(prefers-color-scheme: dark)', color: '#14172E' },
+  ],
 }
 
 export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Promise<Metadata> {

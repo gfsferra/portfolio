@@ -22,7 +22,7 @@ export function MobileNav({ links, labels, footer }: MobileNavProps) {
           <span className="sr-only">{labels.open}</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" showCloseButton={false} aria-describedby={undefined} className="w-[min(20rem,85vw)]">
+      <SheetContent side="right" showCloseButton={false} aria-describedby={undefined} className="w-[min(20rem,85vw)] overscroll-contain">
         <SheetHeader className="flex-row items-center justify-between border-b">
           <SheetTitle className="font-bold">{labels.title}</SheetTitle>
           <SheetClose asChild>

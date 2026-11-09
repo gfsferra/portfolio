@@ -13,7 +13,7 @@ export function Header({ lang }: { lang: Locale }) {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-md print:hidden">
       <div className="mx-auto flex h-16 max-w-page items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href={`/${lang}`} className="text-base font-bold tracking-tight">
+        <Link href={`/${lang}`} translate="no" className="text-base font-bold tracking-tight">
           {profile.name}
         </Link>
 

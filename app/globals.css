@@ -204,9 +204,16 @@
   h1, h2, h3, h4 {
     text-wrap: balance;
   }
-  /* Âncoras não ficam escondidas sob o cabeçalho fixo (64px + respiro). */
-  [id] {
-    scroll-margin-top: 5rem;
+  /* Nem âncoras nem o foco do teclado ficam escondidos sob o cabeçalho fixo (64px + respiro). */
+  html {
+    scroll-padding-top: 5rem;
+  }
+  /* Toque sem atraso de zoom e com destaque discreto na cor da marca. */
+  a,
+  button,
+  [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--brand) 15%, transparent);
   }
   @media (prefers-reduced-motion: no-preference) {
     html {

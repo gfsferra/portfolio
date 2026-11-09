@@ -16,6 +16,7 @@ export function CodeCard({ snippet, html, projectName, labels, className }: Code
   const { path } = snippet.source
   return (
     <figure
+      translate="no"
       className={cn(
         'overflow-hidden rounded-lg border border-code-border bg-code text-code-foreground shadow-code',
         className,

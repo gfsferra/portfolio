@@ -53,6 +53,7 @@ export function Contact({ lang }: { lang: Locale }) {
                 >
                   <span className="text-sm opacity-70">{t.channels[contact.kind][lang]}</span>
                   <span className="truncate font-mono text-sm">{contact.label}</span>
+                  {external && <span className="sr-only"> {ui.projects.newTab[lang]}</span>}
                 </a>
                 {contact.kind === 'email' && (
                   <CopyButton

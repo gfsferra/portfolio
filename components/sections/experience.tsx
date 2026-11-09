@@ -50,6 +50,7 @@ export function Experience({ lang }: { lang: Locale }) {
                   {job.companyUrl ? (
                     <a href={job.companyUrl} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
                       {job.company}
+                      <span className="sr-only"> {ui.projects.newTab[lang]}</span>
                     </a>
                   ) : (
                     job.company

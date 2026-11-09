@@ -29,7 +29,7 @@ export async function Hero({ lang }: { lang: Locale }) {
       className="mx-auto grid max-w-page items-center gap-12 px-4 pt-14 pb-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:pt-20 lg:pb-12"
     >
       <div>
-        <h1 id="hero-title" className="text-display">
+        <h1 id="hero-title" translate="no" className="text-display">
           {profile.name}
         </h1>
         <p className="mt-5 text-lg font-bold text-brand">{profile.role[lang]}</p>

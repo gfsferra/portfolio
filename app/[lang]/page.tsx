@@ -11,7 +11,7 @@ export default async function HomePage({ params }: PageProps<'/[lang]'>) {
   if (!hasLocale(lang)) notFound()
 
   return (
-    <main id="main" tabIndex={-1} className="outline-none">
+    <main id="main">
       <Hero lang={lang} />
       <Projects lang={lang} />
       <About lang={lang} />

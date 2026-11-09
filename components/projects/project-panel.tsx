@@ -59,7 +59,7 @@ export function ProjectPanel({ project, lang }: { project: Project; lang: Locale
 
           <p className="max-w-prose border-l-2 border-brand pl-3 text-sm">{project.outcome[lang]}</p>
 
-          <ul aria-label={t.stack[lang]} className="flex flex-wrap gap-1.5">
+          <ul aria-label={t.stack[lang]} translate="no" className="flex flex-wrap gap-1.5">
             {project.stack.map((tech) => (
               <li key={tech}>
                 <Badge variant="outline" className="rounded-sm font-mono text-meta font-normal">

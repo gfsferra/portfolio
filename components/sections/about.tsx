@@ -60,7 +60,8 @@ export function About({ lang }: { lang: Locale }) {
                 {group.items.map((skill) => {
                   const name = typeof skill.name === 'string' ? skill.name : skill.name[lang]
                   return (
-                    <li key={name}>
+                    // Nomes próprios de tecnologia não passam pelo tradutor automático do navegador.
+                    <li key={name} translate={typeof skill.name === 'string' ? 'no' : undefined}>
                       <Badge variant="outline" className="h-auto gap-1.5 rounded-sm py-1 font-mono text-meta font-normal">
                         {skill.icon && <TechIcon icon={skill.icon} />}
                         {name}
