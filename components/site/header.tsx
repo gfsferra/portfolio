@@ -7,7 +7,8 @@ import { MobileNav } from './mobile-nav'
 import { ThemeToggle } from './theme-toggle'
 
 export function Header({ lang }: { lang: Locale }) {
-  const links = ui.nav.items.map((item) => ({ href: `#${item.id[lang]}`, label: item.label[lang] }))
+  // Com o caminho da página inicial: os links funcionam também no currículo e no 404.
+  const links = ui.nav.items.map((item) => ({ href: `/${lang}#${item.id[lang]}`, label: item.label[lang] }))
   const themeLabels = { toDark: ui.theme.toDark[lang], toLight: ui.theme.toLight[lang] }
 
   return (

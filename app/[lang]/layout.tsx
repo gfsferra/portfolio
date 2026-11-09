@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from 'next'
-import { notFound } from 'next/navigation'
 import { Footer } from '@/components/site/footer'
 import { Header } from '@/components/site/header'
 import { profile } from '@/content/profile'
 import { ui } from '@/content/ui'
 import { jetbrains, schibsted } from '@/lib/fonts'
-import { hasLocale, htmlLang, locales } from '@/lib/i18n'
+import { defaultLocale, hasLocale, htmlLang, locales } from '@/lib/i18n'
 import { siteUrl } from '@/lib/site'
 import { themeScript } from '@/lib/theme'
 import '../globals.css'
 
 /**
- * /pt e /en são gerados no build. Com Cache Components não existe `dynamicParams`:
- * qualquer outro idioma na URL chega ao layout e recebe `notFound()`.
+ * /pt e /en são gerados no build. Com Cache Components não existe `dynamicParams`: qualquer outro
+ * primeiro segmento (/xx) chega aqui. O layout não lança 404 (não haveria página de erro acima dele);
+ * renderiza em português e a página chama `notFound()`, que cai em app/[lang]/not-found.tsx.
  */
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }))
@@ -60,8 +60,8 @@ export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Prom
 }
 
 export default async function RootLayout({ children, params }: LayoutProps<'/[lang]'>) {
-  const { lang } = await params
-  if (!hasLocale(lang)) notFound()
+  const { lang: raw } = await params
+  const lang = hasLocale(raw) ? raw : defaultLocale
 
   return (
     <html
