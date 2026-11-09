@@ -4,130 +4,212 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Tema do portfólio, direção B "Código em destaque" (aprovada em 09/11/2026).
+ *
+ * Trecho para o globals.css que o `npx shadcn@latest init` gera (Tailwind v4):
+ * substitui os blocos `:root`, `.dark` e `@theme inline` que vêm por padrão.
+ * O tema escuro é ativado pela classe `.dark` no <html> (next-themes, attribute="class").
+ *
+ * Contraste conferido (WCAG AA): todo texto ≥ 4,5:1 nos dois temas;
+ * números de linha do código 4,2:1 e anel de foco ≥ 5:1 (mínimo 3:1 para não texto).
+ */
+
 @theme inline {
+  /* Cores do shadcn */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Cores próprias do portfólio */
+  --color-brand: var(--brand);
+  --color-marker: var(--marker);
+  --color-marker-soft: var(--marker-soft);
+  --color-code: var(--code);
+  --color-code-foreground: var(--code-foreground);
+  --color-code-border: var(--code-border);
+  --color-code-line-number: var(--code-line-number);
+  --color-syntax-comment: var(--syntax-comment);
+  --color-syntax-keyword: var(--syntax-keyword);
+  --color-syntax-string: var(--syntax-string);
+  --color-syntax-function: var(--syntax-function);
+  --color-syntax-type: var(--syntax-type);
+
+  /* Fontes: as variáveis vêm do next/font (lib/fonts.ts) */
+  --font-sans: var(--font-schibsted), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-heading: var(--font-sans);
+
+  /* Raios: um por papel, não o mesmo em tudo */
+  --radius-sm: calc(var(--radius) - 6px); /* 6px: chips de tecnologia */
+  --radius-md: calc(var(--radius) - 4px); /* 8px: botões e campos */
+  --radius-lg: var(--radius);             /* 12px: cartões de código */
+  --radius-xl: calc(var(--radius) + 2px); /* 14px: painel de projeto */
+
+  /* Sombra só nos cartões de código, que são os objetos "soltos" da página */
+  --shadow-code: var(--code-shadow);
+}
+
+@theme {
+  /* Escala tipográfica (base 16px). Nome do hero, títulos de página, de seção e de projeto. */
+  --text-display: clamp(2.75rem, 6.4vw, 4.75rem);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.035em;
+  --text-display--font-weight: 800;
+
+  --text-title: clamp(2.25rem, 4.5vw, 3.25rem);
+  --text-title--line-height: 1;
+  --text-title--letter-spacing: -0.03em;
+  --text-title--font-weight: 800;
+
+  --text-section: clamp(1.75rem, 3vw, 2.25rem);
+  --text-section--line-height: 1.1;
+  --text-section--letter-spacing: -0.02em;
+  --text-section--font-weight: 700;
+
+  --text-project: 1.5rem;
+  --text-project--line-height: 1.2;
+  --text-project--letter-spacing: -0.015em;
+  --text-project--font-weight: 700;
+
+  --text-lede: 1.125rem;
+  --text-lede--line-height: 1.6;
+
+  /* Código e metadados técnicos (JetBrains Mono) */
+  --text-code: 0.8125rem;
+  --text-code--line-height: 1.7;
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.4;
+
+  /* Largura máxima do conteúdo e da leitura */
+  --container-page: 70rem; /* 1120px */
+  --container-prose: 65ch;
+
+  /* Easing das interações */
+  --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 0.75rem;
+
+  --background: #F5F6FA;
+  --foreground: #1B1F3B;
+  --card: #FFFFFF;
+  --card-foreground: #1B1F3B;
+  --popover: #FFFFFF;
+  --popover-foreground: #1B1F3B;
+  --primary: #1B1F3B;
+  --primary-foreground: #F5F6FA;
+  --secondary: #E9EBF4;
+  --secondary-foreground: #1B1F3B;
+  --muted: #ECEEF5;
+  --muted-foreground: #5D6382;
+  --accent: #E6EBFF;
+  --accent-foreground: #1B1F3B;
+  --destructive: #C62F3B;
+  --border: #DDE0EC;
+  --input: #DDE0EC;
+  --ring: #3B5BDB;
+
+  --brand: #3B5BDB;
+  --marker: #FFD08A;
+  --marker-soft: rgb(255 208 138 / 0.14);
+
+  --code: #1B1F3B;
+  --code-foreground: #E6E8F5;
+  --code-border: #2C3260;
+  --code-line-number: #7A80AE;
+  --code-shadow: 0 20px 44px rgb(27 31 59 / 0.28);
+  --syntax-comment: #8A90B5;
+  --syntax-keyword: #A9B8FF;
+  --syntax-string: #9FE0B7;
+  --syntax-function: #FFD08A;
+  --syntax-type: #F5A8C8;
+
+  /* Durações das interações */
+  --duration-fast: 150ms;  /* cor e borda em hover e foco */
+  --duration-base: 250ms;  /* abrir menu, sheet, popover */
+  --duration-slow: 350ms;  /* cartões de código se abrindo em leque */
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #14172E;
+  --foreground: #E8EAF5;
+  --card: #1B1F3B;
+  --card-foreground: #E8EAF5;
+  --popover: #1B1F3B;
+  --popover-foreground: #E8EAF5;
+  --primary: #E8EAF5;
+  --primary-foreground: #14172E;
+  --secondary: #262B4F;
+  --secondary-foreground: #E8EAF5;
+  --muted: #22264A;
+  --muted-foreground: #A3A8C7;
+  --accent: #2A3160;
+  --accent-foreground: #E8EAF5;
+  --destructive: #F0646E;
+  --border: #2E3460;
+  --input: #2E3460;
+  --ring: #8FA5FF;
+
+  --brand: #8FA5FF;
+  --marker: #FFD08A;
+  --marker-soft: rgb(255 208 138 / 0.12);
+
+  /* No escuro o código fica mais fundo que a página, para os cartões continuarem destacados */
+  --code: #0F1226;
+  --code-foreground: #E6E8F5;
+  --code-border: #2E3460;
+  --code-line-number: #7A80AE;
+  --code-shadow: 0 20px 44px rgb(0 0 0 / 0.45);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
+
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply font-sans;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
-  }
-  html {
-    @apply font-sans;
   }
 }
