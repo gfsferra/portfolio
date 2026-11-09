@@ -8,8 +8,8 @@ export const profile: Profile = {
   name: 'Gabriel Sferra',
   role: { pt: 'Desenvolvedor Full Stack', en: 'Full Stack Developer' },
   headline: {
-    pt: 'Construo produtos web e mobile de ponta a ponta, do banco de dados à interface, com testes onde um erro custaria caro.',
-    en: 'I build web and mobile products end to end, from the database to the interface, with tests where a bug would be costly.',
+    pt: 'Construo produtos web e mobile de ponta a ponta, do banco de dados à interface.',
+    en: 'I build web and mobile products end to end, from the database to the interface.',
   },
   location: { pt: 'Marília, SP · Brasil', en: 'Marília, SP · Brazil' },
   about: {

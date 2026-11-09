@@ -34,6 +34,17 @@ export const ui = {
     toLight: { pt: 'Ativar tema claro', en: 'Switch to light theme' },
   },
 
+  hero: {
+    ctaProjects: { pt: 'Ver projetos', en: 'See projects' },
+    ctaContact: { pt: 'Falar comigo', en: 'Get in touch' },
+    codeLabel: { pt: 'Trechos reais do meu código', en: 'Real excerpts from my code' },
+  },
+
+  code: {
+    viewSource: { pt: 'ver no GitHub (abre em nova aba)', en: 'view on GitHub (opens in a new tab)' },
+    privateRepo: { pt: 'repositório privado', en: 'private repository' },
+  },
+
   notFound: {
     title: { pt: 'Página não encontrada', en: 'Page not found' },
     body: {

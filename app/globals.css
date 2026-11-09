@@ -222,3 +222,75 @@
     cursor: pointer;
   }
 }
+
+/* ---------- Código: cores do Shiki apontando para os tokens de sintaxe ---------- */
+:root {
+  --shiki-foreground: var(--code-foreground);
+  --shiki-background: transparent;
+  --shiki-token-keyword: var(--syntax-keyword);
+  --shiki-token-string: var(--syntax-string);
+  --shiki-token-string-expression: var(--syntax-string);
+  --shiki-token-comment: var(--syntax-comment);
+  --shiki-token-function: var(--syntax-function);
+  --shiki-token-constant: var(--syntax-type);
+  --shiki-token-parameter: var(--code-foreground);
+  --shiki-token-punctuation: var(--code-foreground);
+  --shiki-token-link: var(--syntax-string);
+}
+
+@layer components {
+  .code-body pre {
+    padding: 0.875rem 1rem;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.7;
+    tab-size: 2;
+    /* Sem ligaduras: `<=` aparece como está no arquivo, não como `≤`. */
+    font-variant-ligatures: none;
+  }
+  .code-body pre.wrap {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .code-body .line.marked {
+    display: inline-block;
+    width: 100%;
+    background: var(--marker-soft);
+    box-shadow: inset 3px 0 0 var(--marker);
+  }
+
+  /*
+   * Pilha de cartões do hero. Até 1024px: coluna simples, sem sobreposição.
+   * Acima: cartões sobrepostos que se abrem em leque no hover e no foco do teclado.
+   */
+  .code-stack {
+    display: grid;
+    gap: 1rem;
+    min-width: 0;
+  }
+  @media (min-width: 64rem) {
+    .code-stack {
+      position: relative;
+      display: block;
+      height: 38.5rem;
+    }
+    .code-stack > * {
+      position: absolute;
+      width: min(100%, 31rem);
+      transition: transform var(--duration-slow) cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .code-stack > :nth-child(1) { top: 0; right: 0; transform: rotate(2deg); }
+    .code-stack > :nth-child(2) { top: 9.5rem; right: 1.75rem; transform: rotate(-2deg); }
+    .code-stack > :nth-child(3) { top: 21rem; right: 0.5rem; transform: rotate(0.5deg); }
+    .code-stack:is(:hover, :focus-within) > :nth-child(1) { transform: rotate(3deg) translate(1rem, -1.25rem); }
+    .code-stack:is(:hover, :focus-within) > :nth-child(2) { transform: rotate(-3.5deg) translate(-1.5rem, -0.25rem); }
+    .code-stack:is(:hover, :focus-within) > :nth-child(3) { transform: rotate(0deg) translate(0.75rem, 1.5rem); }
+  }
+  /* Sem animação: os cartões já aparecem afastados. */
+  @media (min-width: 64rem) and (prefers-reduced-motion: reduce) {
+    .code-stack > :nth-child(1) { transform: rotate(3deg) translate(1rem, -1.25rem); }
+    .code-stack > :nth-child(2) { transform: rotate(-3.5deg) translate(-1.5rem, -0.25rem); }
+    .code-stack > :nth-child(3) { transform: rotate(0deg) translate(0.75rem, 1.5rem); }
+  }
+}

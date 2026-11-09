@@ -79,3 +79,26 @@ export interface Project {
   image: ProjectImage | null
   featured: boolean
 }
+
+export interface SnippetSource {
+  /** `dono/repositório` no GitHub. */
+  repo: string
+  /** Commit fixo de onde o trecho foi extraído. */
+  sha: string
+  path: string
+  /** Faixas de linhas do arquivo original, inclusivas. */
+  ranges: [number, number][]
+  /** Repositório privado: o site mostra o caminho, mas não o link. */
+  private: boolean
+}
+
+export interface Snippet {
+  id: string
+  /** `slug` do projeto em projects.ts. */
+  project: string
+  lang: 'ts' | 'js' | 'php' | 'sql'
+  source: SnippetSource
+  /** Link fixo para as linhas no GitHub; ausente em repositório privado. */
+  href?: string
+  code: string
+}
