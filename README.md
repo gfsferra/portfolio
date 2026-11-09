@@ -3,7 +3,7 @@
 Site pessoal em português e inglês: projetos com trechos reais de código, experiência, tecnologias,
 contato e currículo em PDF.
 
-**No ar:** https://gabrielsferra.vercel.app ([português](https://gabrielsferra.vercel.app/pt) · [English](https://gabrielsferra.vercel.app/en))
+**No ar:** https://gabrielsferra.dev ([português](https://gabrielsferra.dev/pt) · [English](https://gabrielsferra.dev/en))
 
 ## O que tem de diferente
 
@@ -32,7 +32,7 @@ npm run check:snippets   # confere os trechos de código contra o GitHub
 npm run cv               # depois do build: gera public/cv/*.pdf
 
 # Para os PDFs levarem o link do portfólio:
-NEXT_PUBLIC_SITE_URL=https://gabrielsferra.vercel.app npm run build && npm run cv
+NEXT_PUBLIC_SITE_URL=https://gabrielsferra.dev npm run build && npm run cv
 ```
 
 Variável de ambiente no deploy:

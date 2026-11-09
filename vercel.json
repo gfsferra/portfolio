@@ -1,4 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "gabrielsferra.vercel.app" }],
+      "destination": "https://gabrielsferra.dev/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "gabrielsferra-gfsferra.vercel.app" }],
+      "destination": "https://gabrielsferra.dev/:path*",
+      "permanent": true
+    }
+  ]
 }
