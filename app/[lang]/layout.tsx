@@ -21,14 +21,33 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Promise<Metadata> {
   const { lang } = await params
   if (!hasLocale(lang)) return {}
+  const title = `${profile.name} | ${profile.role[lang]}`
+  const description = profile.headline[lang]
+  const ogLocale = (l: string) => htmlLang[l as typeof lang].replace('-', '_')
   return {
     metadataBase: siteUrl,
-    title: `${profile.name} | ${profile.role[lang]}`,
-    description: profile.headline[lang],
+    title,
+    description,
     alternates: {
       canonical: `/${lang}`,
-      languages: Object.fromEntries(locales.map((l) => [htmlLang[l], `/${l}`])),
+      languages: {
+        ...Object.fromEntries(locales.map((l) => [htmlLang[l], `/${l}`])),
+        // A raiz escolhe o idioma pelo navegador.
+        'x-default': '/',
+      },
     },
+    openGraph: {
+      type: 'profile',
+      siteName: profile.name,
+      title,
+      description,
+      url: `/${lang}`,
+      locale: ogLocale(lang),
+      alternateLocale: locales.filter((l) => l !== lang).map(ogLocale),
+      firstName: 'Gabriel',
+      lastName: 'Sferra',
+    },
+    twitter: { card: 'summary_large_image', title, description },
   }
 }
 
