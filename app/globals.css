@@ -204,6 +204,15 @@
   h1, h2, h3, h4 {
     text-wrap: balance;
   }
+  /* Âncoras não ficam escondidas sob o cabeçalho fixo (64px + respiro). */
+  section[id], main[id] {
+    scroll-margin-top: 5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
   a:focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 3px;

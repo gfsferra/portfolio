@@ -8,7 +8,7 @@ export default async function HomePage({ params }: PageProps<'/[lang]'>) {
   if (!hasLocale(lang)) notFound()
 
   return (
-    <main id="conteudo" className="mx-auto max-w-page px-4 py-24 sm:px-6">
+    <main id="main" tabIndex={-1} className="mx-auto max-w-page px-4 py-24 outline-none sm:px-6">
       <h1 className="text-display">{profile.name}</h1>
       <p className="mt-4 font-bold text-brand">{profile.role[lang]}</p>
       <p className="mt-3 max-w-prose text-lede text-muted-foreground">{profile.headline[lang]}</p>

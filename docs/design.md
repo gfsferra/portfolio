@@ -74,6 +74,7 @@ que a explicam. Não vira cor de botão nem de decoração.
 ## Componentes do shadcn previstos
 
 Button, Badge (chips de tecnologia), Card (painel de projeto), Sheet (menu no celular), Tabs (trocar o
-arquivo de um projeto com mais de um trecho), Tooltip (nota de uma linha marcada) e DropdownMenu (idioma).
+arquivo de um projeto com mais de um trecho) e Tooltip (nota de uma linha marcada). O idioma é um par de
+links PT | EN, sem menu suspenso: com só dois idiomas, os dois ficam visíveis e a um clique.
 O bloco de código é um componente próprio: o realce de sintaxe é gerado no build com Shiki e um tema
 montado a partir dos tokens `syntax-*`.

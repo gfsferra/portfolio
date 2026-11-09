@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Header } from '@/components/site/header'
 import { profile } from '@/content/profile'
+import { ui } from '@/content/ui'
 import { jetbrains, schibsted } from '@/lib/fonts'
 import { hasLocale, htmlLang, locales } from '@/lib/i18n'
 import { siteUrl } from '@/lib/site'
@@ -43,7 +45,16 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-dvh">{children}</body>
+      <body className="min-h-dvh">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+        >
+          {ui.skipToContent[lang]}
+        </a>
+        <Header lang={lang} />
+        {children}
+      </body>
     </html>
   )
 }
