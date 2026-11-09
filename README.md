@@ -3,7 +3,7 @@
 Site pessoal em português e inglês: projetos com trechos reais de código, experiência, tecnologias,
 contato e currículo em PDF.
 
-> O endereço público entra aqui no deploy.
+**No ar:** https://gabrielsferra.vercel.app ([português](https://gabrielsferra.vercel.app/pt) · [English](https://gabrielsferra.vercel.app/en))
 
 ## O que tem de diferente
 
@@ -30,13 +30,16 @@ npm run lint
 npm run build
 npm run check:snippets   # confere os trechos de código contra o GitHub
 npm run cv               # depois do build: gera public/cv/*.pdf
+
+# Para os PDFs levarem o link do portfólio:
+NEXT_PUBLIC_SITE_URL=https://gabrielsferra.vercel.app npm run build && npm run cv
 ```
 
 Variável de ambiente no deploy:
 
 | Variável | Para quê |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | Endereço público: canonical, hreflang, Open Graph, sitemap e o link no PDF do currículo |
+| `NEXT_PUBLIC_SITE_URL` | Opcional. Força o endereço público (canonical, Open Graph, sitemap, PDF). Na Vercel, sem ela, vale o domínio de produção do projeto (`VERCEL_PROJECT_PRODUCTION_URL`). |
 
 ## Onde fica cada coisa
 
