@@ -11,7 +11,7 @@ async function buildYear() {
 export async function Footer({ lang }: { lang: Locale }) {
   const year = await buildYear()
   return (
-    <footer className="border-t">
+    <footer className="border-t print:hidden">
       <div className="mx-auto flex max-w-page flex-wrap items-center justify-between gap-4 px-4 py-8 text-sm text-muted-foreground sm:px-6">
         <p>
           © {year} {profile.name}

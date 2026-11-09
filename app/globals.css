@@ -314,3 +314,28 @@
     .code-stack > :nth-child(3) { transform: rotate(0deg) translate(0.75rem, 1.5rem); }
   }
 }
+
+/* ---------- Impressão (currículo em PDF): A4, sempre no tema claro ---------- */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  :root,
+  .dark {
+    color-scheme: light;
+    --background: #ffffff;
+    --foreground: #1b1f3b;
+    --card: #ffffff;
+    --card-foreground: #1b1f3b;
+    --muted-foreground: #5d6382;
+    --border: #dde0ec;
+    --brand: #3b5bdb;
+  }
+  body {
+    background: #ffffff;
+  }
+  a {
+    text-decoration: none;
+  }
+}

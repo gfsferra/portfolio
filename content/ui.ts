@@ -79,6 +79,17 @@ export const ui = {
     cv: { pt: 'Baixar currículo (PDF)', en: 'Download résumé (PDF)' },
   },
 
+  cv: {
+    title: { pt: 'Currículo', en: 'Résumé' },
+    summary: { pt: 'Resumo', en: 'Summary' },
+    experience: { pt: 'Experiência', en: 'Experience' },
+    projects: { pt: 'Projetos', en: 'Projects' },
+    education: { pt: 'Formação', en: 'Education' },
+    skills: { pt: 'Tecnologias', en: 'Technologies' },
+    languages: { pt: 'Idiomas', en: 'Languages' },
+    portfolio: { pt: 'Portfólio', en: 'Portfolio' },
+  },
+
   footer: {
     source: { pt: 'Código-fonte deste site', en: 'Source code of this site' },
     backToTop: { pt: 'Voltar ao topo', en: 'Back to top' },
