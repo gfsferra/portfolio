@@ -1,4 +1,4 @@
-import { MapPinIcon } from 'lucide-react'
+import { DownloadIcon, MapPinIcon } from 'lucide-react'
 import { CodeCard } from '@/components/code/code-card'
 import { Button } from '@/components/ui/button'
 import { profile } from '@/content/profile'
@@ -40,6 +40,12 @@ export async function Hero({ lang }: { lang: Locale }) {
           </Button>
           <Button asChild size="lg" variant="outline" className="h-11 px-5 text-base">
             <a href={`#${sectionId('contato', lang)}`}>{ui.hero.ctaContact[lang]}</a>
+          </Button>
+          <Button asChild size="lg" variant="ghost" className="h-11 px-3 text-base">
+            <a href={profile.cv[lang]} download>
+              <DownloadIcon aria-hidden="true" />
+              {ui.contact.cv[lang]}
+            </a>
           </Button>
         </div>
         <p className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">

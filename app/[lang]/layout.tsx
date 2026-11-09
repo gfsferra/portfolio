@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Footer } from '@/components/site/footer'
 import { Header } from '@/components/site/header'
 import { profile } from '@/content/profile'
 import { ui } from '@/content/ui'
@@ -54,6 +55,7 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
         </a>
         <Header lang={lang} />
         {children}
+        <Footer lang={lang} />
       </body>
     </html>
   )

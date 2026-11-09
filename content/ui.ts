@@ -56,6 +56,34 @@ export const ui = {
     },
   },
 
+  experience: {
+    title: { pt: 'Experiência', en: 'Experience' },
+    work: { pt: 'Trabalho', en: 'Work' },
+    education: { pt: 'Formação', en: 'Education' },
+    present: { pt: 'atual', en: 'present' },
+  },
+
+  contact: {
+    title: { pt: 'Contato', en: 'Contact' },
+    intro: {
+      pt: 'Se você tem uma vaga ou um projeto em mente, fale comigo por qualquer um destes canais.',
+      en: 'If you have a role or a project in mind, reach me through any of these channels.',
+    },
+    channels: {
+      linkedin: { pt: 'LinkedIn', en: 'LinkedIn' },
+      email: { pt: 'E-mail', en: 'Email' },
+      whatsapp: { pt: 'WhatsApp', en: 'WhatsApp' },
+    },
+    copyEmail: { pt: 'Copiar e-mail', en: 'Copy email' },
+    copied: { pt: 'E-mail copiado', en: 'Email copied' },
+    cv: { pt: 'Baixar currículo (PDF)', en: 'Download résumé (PDF)' },
+  },
+
+  footer: {
+    source: { pt: 'Código-fonte deste site', en: 'Source code of this site' },
+    backToTop: { pt: 'Voltar ao topo', en: 'Back to top' },
+  },
+
   projects: {
     title: { pt: 'Projetos', en: 'Projects' },
     intro: {
