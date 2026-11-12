@@ -10,7 +10,7 @@ import type { Locale } from '@/lib/i18n'
 import { sectionId } from '@/lib/sections'
 
 /** De trás para a frente na pilha: o último cartão fica por cima, inteiro à vista. */
-const HERO_SNIPPETS = ['orbital-category-kind-fk', 'grit-conditional-upsert', 'cadastro-cpf-check-digit']
+const HERO_SNIPPETS = ['nauri-category-kind-fk', 'grit-conditional-upsert', 'cadastro-cpf-check-digit']
 
 export async function Hero({ lang }: { lang: Locale }) {
   const cards = await Promise.all(

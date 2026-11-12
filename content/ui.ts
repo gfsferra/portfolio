@@ -108,6 +108,7 @@ export const ui = {
     repo: { pt: 'Ver o código', en: 'View the code' },
     demo: { pt: 'Abrir o app', en: 'Open the app' },
     newTab: { pt: '(abre em nova aba)', en: '(opens in a new tab)' },
+    screens: { pt: 'Telas do app', en: 'App screens' },
   },
 
   notFound: {

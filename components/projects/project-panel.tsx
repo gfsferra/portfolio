@@ -4,7 +4,7 @@ import { AnnotatedCode } from '@/components/code/annotated-code'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import type { Project } from '@/content/types'
+import type { Project, ProjectImage } from '@/content/types'
 import { ui } from '@/content/ui'
 import type { Locale } from '@/lib/i18n'
 
@@ -88,18 +88,23 @@ export function ProjectPanel({ project, lang }: { project: Project; lang: Locale
         </div>
 
         <div className="grid min-w-0 content-start gap-8 lg:sticky lg:top-24 lg:self-start">
-          {project.image && (
+          {project.images.length === 1 && (
             <figure className="mx-auto w-[200px]">
-              <div className="overflow-hidden rounded-[2rem] border-[6px] border-code bg-code shadow-code">
-                <Image
-                  src={project.image.src}
-                  alt={project.image.alt[lang]}
-                  width={project.image.width}
-                  height={project.image.height}
-                  sizes="188px"
-                />
-              </div>
+              <Phone image={project.images[0]} lang={lang} sizes="188px" />
             </figure>
+          )}
+          {project.images.length > 1 && (
+            // Lado a lado; no celular, uma fileira que rola na horizontal em vez de encolher as telas.
+            <ul
+              aria-label={t.screens[lang]}
+              className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pt-1 pb-8 sm:mx-0 sm:justify-center sm:overflow-visible sm:px-0 sm:pb-2"
+            >
+              {project.images.map((image) => (
+                <li key={image.src} className="w-[156px] shrink-0 snap-center sm:w-auto sm:max-w-[176px] sm:flex-1">
+                  <Phone image={image} lang={lang} sizes="(min-width: 640px) 164px, 144px" />
+                </li>
+              ))}
+            </ul>
           )}
           {project.code && (
             <AnnotatedCode
@@ -112,5 +117,14 @@ export function ProjectPanel({ project, lang }: { project: Project; lang: Locale
         </div>
       </Card>
     </article>
+  )
+}
+
+/** Captura de tela do app numa moldura de celular. */
+function Phone({ image, lang, sizes }: { image: ProjectImage; lang: Locale; sizes: string }) {
+  return (
+    <div className="overflow-hidden rounded-[2rem] border-[6px] border-code bg-code shadow-code">
+      <Image src={image.src} alt={image.alt[lang]} width={image.width} height={image.height} sizes={sizes} />
+    </div>
   )
 }

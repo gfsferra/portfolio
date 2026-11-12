@@ -5,7 +5,7 @@ import { profile } from '@/content/profile'
 import { getSnippet } from '@/content/snippets'
 import { hasLocale, locales } from '@/lib/i18n'
 
-/** Imagem de compartilhamento (1200×630) por idioma: nome, cargo, frase e três linhas reais do Orbital. */
+/** Imagem de compartilhamento (1200×630) por idioma: nome, cargo, frase e três linhas reais do Nauri. */
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 export const alt = profile.name
@@ -32,7 +32,7 @@ async function loadFonts() {
 export default async function OpenGraphImage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: raw } = await params
   const lang = hasLocale(raw) ? raw : 'pt'
-  const snippet = getSnippet('orbital-category-kind-fk')
+  const snippet = getSnippet('nauri-category-kind-fk')
   // As linhas da chave composta, sem os comentários de cima.
   const code = snippet.code.split('\n').slice(2, 5)
   const [regular, extraBold, mono] = await loadFonts()

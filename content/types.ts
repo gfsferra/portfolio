@@ -95,7 +95,8 @@ export interface Project {
   /** Estado atual e resultado mensurável. */
   outcome: Localized
   links: { repo?: string; demo?: string }
-  image: ProjectImage | null
+  /** Telas reais do app, na ordem em que aparecem; vazio quando não há. */
+  images: ProjectImage[]
   featured: boolean
 }
 
